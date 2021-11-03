@@ -1,0 +1,21 @@
+{
+  "name": "biptassist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.6.8",
+    "buffer": "^6.0.3",
+    "iconv-lite": "^0.6.2",
+    "miniprogram-api-promise": "^1.0.4",
+    "mp-html": "^2.1.2",
+    "string_decoder": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

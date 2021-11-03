@@ -1,0 +1,3 @@
+<view class="root">
+  <wemark md="{{md}}"></wemark>
+</view>

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "mp-navigation-bar": "weui-miniprogram/navigation-bar/navigation-bar",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "北石化助手"
+
+}

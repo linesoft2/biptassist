@@ -1,0 +1,2 @@
+<!--pages/me/jump.wxml-->
+<button open-type="{{openType}}">点击进入{{pageName}}页面</button>

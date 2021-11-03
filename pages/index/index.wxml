@@ -1,0 +1,95 @@
+<!--index.wxml-->
+<mp-navigation-bar loading="{{false}}" title="北石化助手" back="{{false}}" background="#EDEDED">
+</mp-navigation-bar>
+<view class="container">
+  <!-- <button bindtap="loginTest">登录接口测试</button>
+  <button bindtap="apiTest">测试</button> -->
+  <view style="height: 20rpx;"></view>
+  <swiper indicator-dots style="width: 694rpx; height: 203rpx">
+    <swiper-item bindtap="clickBanner"><image style="height:100%; width:100%"  src="https://cdn.linesoft.top/bipt/banner_new.png"></image></swiper-item>
+    <!-- <swiper-item bindtap="clickBanner"><image src="https://cdn.linesoft.top/bipt/banner2.png"></image></swiper-item> -->
+  </swiper>
+  <view style="height: 20rpx;"></view>
+  <van-grid style="width:694rpx" icon-size="80rpx" class="panel" >
+    <van-grid-item content-class="item_content_class"  link-type="navigateTo" url="/pages/index/exam" bindtap="" icon="/icon/考试安排@2x.png" text="考试安排" />
+    <van-grid-item content-class="item_content_class"  link-type="navigateTo" url="/pages/index/time" bindtap="" icon="/icon/时间节点@2x.png" text="时间节点" />
+    <van-grid-item content-class="item_content_class" bindtap="tapXiaoli" icon="/icon/校历@2x.png" text="校历" />
+    <!-- <van-grid-item content-class="item_content_class"  link-type="navigateTo" url="/pages/index/donate" bindtap="" icon="/icon/money.png" text="捐助" /> -->
+  </van-grid>
+  <!-- <view class="xykroot">
+    <image class="xykroot_bg" src="/icon/img-kp-bg@2x.png"></image>
+    <view class="xyk" bindtap="jumpToXyk">
+      <view class="xykshang">
+        <text style="margin-left: 24rpx;color: white;">校园卡</text>
+        <image src="/icon/Icons-next-more@2x.png" style="width: 13.03rpx;height: 22.58rpx;margin-right: 38rpx;">
+        </image>
+      </view>
+      <view style="background: #9AC5FF; opacity: 0.2; width: 642rpx; height: 2rpx;position: absolute; top:96rpx;" />
+      <view class="yyroot">
+        <text class="zhye">账户余额(元)</text>
+        <text class="xxyuan">{{yue}}</text>
+      </view>
+      <view class="xyktsroot">
+        <text class="xykts"></text>
+      </view>
+    </view>
+
+  </view> -->
+  <view style="height: 20rpx;"></view>
+  <view class="kcbroot" wx:if="{{true}}">
+    <image class="kcbroot_bg" src="/icon/img-kcb-bg@2x.png"></image>
+
+    <view class="kcb" bindtap="jumpToKcb">
+      <view class="kcbshang">
+        <text style="margin-left: 24rpx;color: black;">课程表</text>
+        <image src="/icon/Icons-next-more@2x.png"
+          style="width: 13.03rpx;height: 22.58rpx;margin-right: 38rpx; filter: brightness(50%);"></image>
+      </view>
+      <view style="background: #F3F3F3; opacity: 1; width: 642rpx; height: 2rpx;top:96rpx;" />
+      <!-- 在上课，下节有课 -->
+      <view wx:if="{{kcb.xs==0}}" class="kcroot xjyk">
+        <view class="jieke">
+          <text style="color: #666666">本节课：</text><text style="color: #FF3D00">{{kcb.course1}}</text>
+        </view>
+        <view style="display: flex; flex-direction: culum; align-items: center;">
+          <view
+            style="border-left: dotted; height:128rpx; width: 0rpx;margin-left: 130rpx; margin-right: 15rpx; color: #999999">
+          </view>
+          <view>
+            <text>距离下课还有</text><text
+              style="color: #1A73E8;font-weight:700;">{{kcb.time}}</text><text>{{kcb.unit}}</text>
+          </view>
+        </view>
+        <view class="jieke" style="background: #1A73E8">
+          <text style="color: white">下节课：{{kcb.course2}}</text>
+        </view>
+      </view>
+      <!-- 在上课，下节无课 -->
+      <view wx:if="{{kcb.xs==1}}" class="kcroot xjwk">
+        <view class="jieke">
+          <text style="color: #666666">本节课：</text><text style="color: #FF3D00">{{kcb.course1}}</text>
+        </view>
+        <view>
+          <text>距离下课还有</text><text style="color: #1A73E8;font-weight:700;">{{kcb.time}}</text><text>{{kcb.unit}}</text>
+        </view>
+      </view>
+      <!-- 未上课，下节有课 -->
+      <view wx:if="{{kcb.xs==2}}" class="kcroot xjwk">
+        <view>
+          <text>还有</text><text style="color: #1A73E8;font-weight:700;">{{kcb.time}}</text><text>{{kcb.unit}}上课</text>
+        </view>
+        <view class="jieke" style="background: #1A73E8">
+          <text style="color:white">下节课：{{kcb.course2}}</text>
+        </view>
+        <text>教室：{{kcb.info}}</text>
+      </view>
+      <!-- 今天没课或提示 -->
+      <view wx:if="{{kcb.xs==3}}" class="kcroot xjwk">
+        <text>{{kcb.info}}</text>
+      </view>
+    </view>
+
+
+  </view>
+  <!-- <button bindtap="changekcbzt" wx:if="{{true}}}">切换课程表状态</button> -->
+</view>

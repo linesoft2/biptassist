@@ -1,0 +1,75 @@
+/* pages/me.wxss */
+
+page{
+  background: rgba(249, 249, 249, 0.94);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.wode {
+  font-size: 34rpx;
+  color: #FFFFFF;
+}
+
+.shangbai {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #FFFFFF;
+  width: 694rpx;
+  height: 232rpx;
+  border-radius: 10px;
+  transform: translateY(40);
+}
+
+.shang {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* align-items:flex-end; */
+  /* border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px; */
+  height: 438rpx;
+  background: linear-gradient(180deg, #1A73E8 0%, rgba(26, 115, 232, 0.84) 68%, rgba(255, 255, 255, 0) 100%);
+  opacity: 1;
+  /* bottom: 300rpx; */
+}
+
+.touxiang {
+  width: 160rpx;
+  height: 160rpx;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 28rpx;
+  margin-right: 28rpx;
+  box-shadow: 0px 16rpx 30rpx rgba(153, 153, 153, 0.1);
+
+}
+
+.txright {
+  display: flex;
+  flex-direction: column;
+}
+
+.xingming {
+  font-size: 32rpx;
+}
+
+.banji {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.xia{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.weui-cell__bd{
+  color: #666666;
+  font-size: 28rpx;
+
+}

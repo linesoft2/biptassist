@@ -1,0 +1,34 @@
+<!--pages/index/xyk.wxml-->
+<van-dialog use-slot title="余额设置" show="{{ showInput }}" show-cancel-button bind:confirm="onInputConfirm" cancel-button-text="取消" confirm-button-text="确认修改">
+  <input model:value="{{inputValue}}" style="margin: 30rpx 10rpx 30rpx 10rpx" type="digit" placeholder="点击输入您的校园卡余额" />
+  <text>若不知道可以去刷卡机那看一下，设置一次余额后系统会自动计算之后的余额，就不用再设置了</text>
+</van-dialog>
+<view class="container">
+  <view class="xykroot">
+    <image class="xykroot_bg" src="/icon/img-card-xx-bg@2x.png"></image>
+    <view class="xyk" >
+      <view class="yyroot">
+        <text class="zhye">账户余额(元)</text>
+        <text class="xxyuan">{{yue}}</text>
+      </view>
+      <view class="xyktsroot">
+        <text class="xykts"></text>
+        <text bindtap="clickYuexiuzheng" class="yuexiuzheng">余额设置/修正</text>
+      </view>
+    </view>
+  </view>
+  <view class="listhead">
+    <text class="listheadtext">时间</text>
+    <text class="listheadtext">地点</text>
+    <text class="listheadtext">消费</text>
+  </view>
+  <view class="list" wx:for="{{list}}" wx:key="id">
+    <view class="item">
+      <text class="itemtext_time">{{item.time}}</text>
+      <text class="itemtext_text">{{item.info}}</text>
+      <text class="itemtext_cost">{{item.price}}</text>
+    </view>
+    <view class="item_xian"></view>
+  </view>
+  <text wx:if="{{xianshigengduo}}" style="color: #999999;"></text>
+</view>

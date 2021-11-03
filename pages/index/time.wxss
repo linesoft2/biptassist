@@ -1,0 +1,6 @@
+/* pages/index/time.wxss */
+.content{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}

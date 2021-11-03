@@ -1,0 +1,18 @@
+<!--pages/captcha.wxml-->
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <mp-form>
+  <view style="height: 200rpx"></view>
+  <view style="text-align: center;font-size: 40rpx;">输入验证码登录教务系统</view>
+    <mp-cells>
+      <mp-cell title="验证码">
+        <input model:value="{{inputCap}}" placeholder="请输入验证码" type="number" />
+        <view slot="footer" class="cap">
+          <image src="{{capAddress}}" style="width: 100px; height: 40px" bindTap="changeCap"></image>
+          <text style="color:#1A73E8; font-size: 30rpx;" bindtap="changeCap">看不清，换一张</text>
+        </view>
+      </mp-cell>
+    </mp-cells>
+  </mp-form>
+  <!-- <button bindtap="changeCap">看不清，换一张</button> -->
+  <button bindtap="submitForm" style="background: #1A73E8;color: white;margin-top: 40rpx; width: 300rpx; padding-top: auto">登录</button>
+</view>

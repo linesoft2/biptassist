@@ -1,0 +1,15 @@
+<!--pages/index/time.wxml-->
+<van-tabs active="{{ active }}" bind:change="onChange" color="#1A73E8" swipeable sticky animated>
+  <van-tab title="主校食堂营业时间" class="content">
+    <mp-html content="{{qingyuan}}" markdown>
+    </mp-html>
+  </van-tab>
+  <!-- <van-tab title="康庄食堂营业时间" class="content">
+    <mp-html content="{{kangzhuang}}" markdown>
+    </mp-html>
+  </van-tab> -->
+  <van-tab title="校车发车时间" class="content">
+    <mp-html markdown content="{{xiaoche}}" markdown>
+    </mp-html>
+  </van-tab>
+</van-tabs>

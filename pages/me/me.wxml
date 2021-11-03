@@ -1,0 +1,44 @@
+<!--pages/me.wxml-->
+
+<view class="container">
+
+  <view class="shang">
+    <view style="height: {{windowheight}}px"></view>
+    <text class="wode" style="height: {{wodeheight}}px">我的</text>
+    <view class="shangbai">
+      <!-- <open-data class="touxiang" type="userAvatarUrl" /> -->
+      <view class="touxiang">
+        <open-data type="userAvatarUrl" class="icon" ></open-data>
+      </view>
+      <view class="txright">
+        <open-data class="xingming" type="userNickName"></open-data>
+        <!-- <text class="banji">{{banji}}</text> -->
+      </view>
+    </view>
+  </view>
+  <view class="xia">
+    <mp-cells>
+      <!-- <mp-cell link hover url="/pages/me/setting" value="设置">
+        <image slot="icon" src="/icon/icon-system@2x.png"
+          style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
+      </mp-cell> -->
+      <mp-cell link hover url="/pages/me/jump?t=0" value="客服">
+        <image slot="icon" src="/icon/server.png"
+          style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
+      </mp-cell>
+      <!-- <mp-cell link hover url="/pages/me/help" value="帮助">
+        <image slot="icon" src="/icon/help-circle.png"
+          style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
+      </mp-cell> -->
+      <mp-cell link hover url="/pages/me/jump?t=1" value="反馈">
+        <image slot="icon" src="/icon/get.png"
+          style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
+      </mp-cell>
+      <mp-cell link hover url="/pages/me/richtext?url=https://cdn.linesoft.top/bipt/about.md" value="关于">
+        <image slot="icon" src="/icon/icon-about@2x.png"
+          style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
+      </mp-cell>
+    </mp-cells>
+  </view>
+
+</view>

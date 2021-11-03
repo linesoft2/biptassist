@@ -1,0 +1,11 @@
+/* pages/index/exam.wxss */
+container{
+  align-items: center;
+}
+.footer{
+  display: flex;
+  height: 66rpx;
+  justify-content: center;
+  align-items: center;
+  
+}

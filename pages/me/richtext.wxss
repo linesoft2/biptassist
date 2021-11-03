@@ -1,0 +1,5 @@
+/* pages/about.wxss */
+.root {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}

@@ -1,0 +1,11 @@
+/* pages/captcha.wxss */
+.page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

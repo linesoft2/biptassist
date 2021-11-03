@@ -1,0 +1,7 @@
+<!--pages/about.wxml-->
+<view class="root">
+  <mp-html markdown content="{{md}}"></mp-html>
+</view>
+  
+
+

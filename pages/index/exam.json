@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mp-html": "mp-html"
+  },
+  "navigationBarTitleText": "考试安排查询"
+
+}

@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="shang">
+    <!-- <mp-navigation-bar title="" back="{{true}}" color="#FFFFFF"></mp-navigation-bar>
+    <text style="color: #FFFFFF; font-size: 50rpx; text-align: center">欢迎使用\n北石化助手</text> -->
+    <text style="width: 100%; text-align: center; color: black;">请提供以下信息登录教务系统：</text>
+    <form class="biaodan" bindsubmit="submit">
+      <mp-cells>
+        <mp-cell>
+          <input name="username" class="weui-input" placeholder="学号" type="number" model:value="{{id}}"/>
+        </mp-cell>
+        <mp-cell>
+          <input password="{{true}}" name="jwzx_pwd" class="weui-input" model:value="{{pwd}}" placeholder="教务系统密码" />
+        </mp-cell>
+        <view style="font-size: 30rpx; padding-left: 30rpx; padding-right: 30rpx;">备注：查询考试、课表所登录的平台用的密码。（默认为身份证号）</view>
+        <!-- <mp-cell>
+          <input password="{{true}}" name="schoolinfo_pwd" class="weui-input" placeholder="校园信息平台密码" />
+        </mp-cell>
+        <text style="font-size: 30rpx; padding-left: 30rpx;">备注：拨号连接学校宽带所用的密码。</text> -->
+        <mp-cell>
+        <input class="weui-input" name="captcha" placeholder="验证码" type="number" value="{{cap}}"/>
+        <view slot="footer" class="cap">
+          <image src="{{capAddress}}" style="width: 100px; height: 40px" bindTap="changeCap"></image>
+          <text style="color:#1A73E8; font-size: 30rpx;" bindtap="changeCap">看不清，换一张</text>
+        </view>
+        
+      </mp-cell>
+      <!-- <button bindtap="changeCap">看不清，换一张</button> -->
+      </mp-cells>
+      <view class="tiankuan" style="font-size: 30rpx; padding-left: 30rpx;">
+        <checkbox color="#1A73E8" model:checked="{{checked}}">保存账号密码（加密保存到本地，软件不会收集）</checkbox>
+      </view>
+      <button class="btn" style="margin-top: 40rpx; width: 300rpx; padding-top: auto" form-type="submit"
+        loading="{{btn_load}}">登录</button>
+    </form>
+
+
+  </view>
+</view>

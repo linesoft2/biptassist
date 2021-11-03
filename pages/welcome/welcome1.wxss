@@ -1,0 +1,29 @@
+/* pages/welcome/welcome1.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.shang{
+  /* height: 438rpx;
+  background: linear-gradient(180deg, #1A73E8 0%, rgba(26, 115, 232, 0.84) 68%, rgba(255, 255, 255, 0) 100%); */
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  /* padding-left: 20rpx; */
+  /* padding-right: 20rpx; */
+  align-items: center;
+}
+.biaodan{
+  width: 100%;
+
+}
+.btn{
+  background: #1A73E8;
+  color: white;
+}
+
+.cap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
