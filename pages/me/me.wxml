@@ -22,18 +22,23 @@
         <image slot="icon" src="/icon/icon-system@2x.png"
           style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
       </mp-cell> -->
-      <mp-cell link hover url="/pages/me/jump?t=0" value="客服">
+      <!-- <button style="opacity: 0;"> -->
+      <view style="position:relative;">
+        <button open-type="contact" class="hide_button"></button>
+      <mp-cell link hover value="客服">
         <image slot="icon" src="/icon/server.png"
           style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
-      </mp-cell>
+      </mp-cell></view>
       <!-- <mp-cell link hover url="/pages/me/help" value="帮助">
         <image slot="icon" src="/icon/help-circle.png"
           style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
       </mp-cell> -->
+      <view style="position:relative;">
+        <button open-type="feedback" class="hide_button"></button>
       <mp-cell link hover url="/pages/me/jump?t=1" value="反馈">
         <image slot="icon" src="/icon/get.png"
           style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
-      </mp-cell>
+      </mp-cell></view>
       <mp-cell link hover url="/pages/me/richtext?url=https://cdn.linesoft.top/bipt/about.md" value="关于">
         <image slot="icon" src="/icon/icon-about@2x.png"
           style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>

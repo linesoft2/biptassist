@@ -73,3 +73,12 @@ page{
   font-size: 28rpx;
 
 }
+.hide_button{
+  position:absolute;
+  left:0px;
+  top:0px;
+  bottom: 0px;
+  right: 0px;
+  z-index:5;
+  opacity: 0;
+}
