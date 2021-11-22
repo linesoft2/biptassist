@@ -2,7 +2,8 @@
   "usingComponents": {
     "mp-navigation-bar": "weui-miniprogram/navigation-bar/navigation-bar",
     "van-grid": "@vant/weapp/grid/index",
-    "van-grid-item": "@vant/weapp/grid-item/index"
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index"
   },
   "navigationStyle": "custom",
   "navigationBarTitleText": "北石化助手"

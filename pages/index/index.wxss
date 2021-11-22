@@ -8,6 +8,7 @@ page {
   width: 100%;
   flex-direction: column;
   align-items: center;
+  
 }
 
 
@@ -188,4 +189,16 @@ page {
 .item_content_class {
   background-color: transparent !important;
   height: 170rpx !important;
+}
+
+.notice{
+  width: 694rpx;
+}
+.van-notice-bar{
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 25rpx;
+}
+
+.van-hairline--top:after {
+  border-top-width: 0px !important;
 }

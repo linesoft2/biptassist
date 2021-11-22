@@ -5,14 +5,18 @@
   <!-- <button bindtap="loginTest">登录接口测试</button>
   <button bindtap="apiTest">测试</button> -->
   <view style="height: 20rpx;"></view>
-  <swiper indicator-dots style="width: 694rpx; height: 203rpx">
-    <swiper-item bindtap="clickBanner"><image style="height:100%; width:100%"  src="https://cdn.linesoft.top/bipt/banner_new.png"></image></swiper-item>
+  <swiper indicator-dots style="width: 694rpx; height: 203rpx; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05); border-radius: 25rpx;">
+    <swiper-item bindtap="clickBanner">
+      <image style="height:100%; width:100%" src="https://cdn.linesoft.top/bipt/banner_new.png"></image>
+    </swiper-item>
     <!-- <swiper-item bindtap="clickBanner"><image src="https://cdn.linesoft.top/bipt/banner2.png"></image></swiper-item> -->
   </swiper>
   <view style="height: 20rpx;"></view>
-  <van-grid style="width:694rpx" icon-size="80rpx" class="panel" >
-    <van-grid-item content-class="item_content_class"  link-type="navigateTo" url="/pages/index/exam" bindtap="" icon="/icon/kaoshianpai@2x.png" text="考试安排" />
-    <van-grid-item content-class="item_content_class"  link-type="navigateTo" url="/pages/index/time" bindtap="" icon="/icon/shijianjiedian@2x.png" text="时间节点" />
+  <van-notice-bar class="notice" left-icon="volume-o" wrapable scrollable="{{ false }}" text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。" />
+  <view style="height: 20rpx;"></view>
+  <van-grid style="width:694rpx" icon-size="80rpx" class="panel">
+    <van-grid-item content-class="item_content_class" link-type="navigateTo" url="/pages/index/exam" bindtap="" icon="/icon/kaoshianpai@2x.png" text="考试安排" />
+    <van-grid-item content-class="item_content_class" link-type="navigateTo" url="/pages/index/time" bindtap="" icon="/icon/shijianjiedian@2x.png" text="时间节点" />
     <van-grid-item content-class="item_content_class" bindtap="tapXiaoli" icon="/icon/xiaoli@2x.png" text="校历" />
     <!-- <van-grid-item content-class="item_content_class"  link-type="navigateTo" url="/pages/index/donate" bindtap="" icon="/icon/money.png" text="捐助" /> -->
   </van-grid>
@@ -42,8 +46,7 @@
     <view class="kcb" bindtap="jumpToKcb">
       <view class="kcbshang">
         <text style="margin-left: 24rpx;color: black;">课程表</text>
-        <image src="/icon/Icons-next-more@2x.png"
-          style="width: 13.03rpx;height: 22.58rpx;margin-right: 38rpx; filter: brightness(50%);"></image>
+        <image src="/icon/Icons-next-more@2x.png" style="width: 13.03rpx;height: 22.58rpx;margin-right: 38rpx; filter: brightness(50%);"></image>
       </view>
       <view style="background: #F3F3F3; opacity: 1; width: 642rpx; height: 2rpx;top:96rpx;" />
       <!-- 在上课，下节有课 -->
@@ -52,12 +55,10 @@
           <text style="color: #666666">本节课：</text><text style="color: #FF3D00">{{kcb.course1}}</text>
         </view>
         <view style="display: flex; flex-direction: culum; align-items: center;">
-          <view
-            style="border-left: dotted; height:128rpx; width: 0rpx;margin-left: 130rpx; margin-right: 15rpx; color: #999999">
+          <view style="border-left: dotted; height:128rpx; width: 0rpx;margin-left: 130rpx; margin-right: 15rpx; color: #999999">
           </view>
           <view>
-            <text>距离下课还有</text><text
-              style="color: #1A73E8;font-weight:700;">{{kcb.time}}</text><text>{{kcb.unit}}</text>
+            <text>距离下课还有</text><text style="color: #1A73E8;font-weight:700;">{{kcb.time}}</text><text>{{kcb.unit}}</text>
           </view>
         </view>
         <view class="jieke" style="background: #1A73E8">
