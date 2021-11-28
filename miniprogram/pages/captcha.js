@@ -78,7 +78,6 @@ Page({
     })
     try {
       let result = await server.getValue("jwzx")
-      // await jwzx.loginUseParam("2018311182", "zyx525200", this.data.inputCap)
       await jwzx.loginUseParam(result.username, result.password, this.data.inputCap)
       wx.showModal({
         title:"提示",
