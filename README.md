@@ -18,7 +18,8 @@
 
 ## Screenshot
 
-![截图1](https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot1.PNG)
-![截图2](https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot2.PNG)
-![截图3](https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot3.PNG)
-![截图4](https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot4.PNG)
+
+<img src="https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot1.PNG" width = "400" alt=""/>
+<img src="https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot2.PNG" width = "400" alt=""/>
+<img src="https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot3.PNG" width = "400" alt=""/>
+<img src="https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot4.PNG" width = "400" alt=""/>
