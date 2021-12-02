@@ -23,7 +23,7 @@ function getStart(num) {
   switch (num) {
     case 1:
       result.set('hour', 8);
-      result.set('minute', 45);
+      result.set('minute', 0);
       return result
     case 2:
       result.set('hour', 8);

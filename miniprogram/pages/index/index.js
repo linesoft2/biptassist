@@ -60,6 +60,8 @@ Page({
           let thisweek = await kcbpaerser.getThisWeek()
           let today
           for (let i of thisweek) {
+
+
             if (i.today == true) {
               today = i.course
               break
@@ -82,15 +84,25 @@ Page({
           //   clearInterval(intervalId)
           // }
           const reFreshKcbCard = (today) => {
+            // console.log(today)
             let now = moment('19700101')
             now.set('hour', moment().get("hour"));
-            // now.set('hour', 4);
+
+            // now.set('hour', 8);
+
             now.set('minute', moment().get("minute"));
-            // now.set('minute', 29);
+
+            // now.set('minute', 15);
+
             now.set('second', moment().get("second"));
             let havingCourse = false
 
             for (let i = 0; i < today.length; i++) {
+              // console.log(today[i].name)
+              // console.log(today[i].start.format(),today[i].end.format())
+              // console.log(now.format(),now.format())
+              // console.log(now.isAfter(today[i].start),now.isBefore(today[i].end))
+              // console.log("___________")
               if (now.isAfter(today[i].start) && now.isBefore(today[i].end)) {
                 havingCourse = true
                 // 上课中
@@ -151,6 +163,8 @@ Page({
               }
             }
           }
+
+
           reFreshKcbCard(today)
           intervalId = setInterval((today)=>reFreshKcbCard(today), 1000, today)
 
