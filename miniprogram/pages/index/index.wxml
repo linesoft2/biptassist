@@ -5,7 +5,7 @@
   <!-- <button bindtap="loginTest">登录接口测试</button>
   <button bindtap="apiTest">测试</button> -->
   <view style="height: 20rpx;"></view>
-  <swiper indicator-dots style="width: 694rpx; height: 203rpx; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05); border-radius: 25rpx;">
+  <swiper indicator-dots style="width: 694rpx; height: 203rpx; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05); border-radius: 17rpx;">
     <swiper-item bindtap="clickBanner">
       <image style="height:100%; width:100%" src="https://cdn.linesoft.top/bipt/banner_new.png"></image>
     </swiper-item>
