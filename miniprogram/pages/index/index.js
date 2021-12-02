@@ -4,6 +4,7 @@ const app = getApp()
 const server = app.globalData.server
 const jwzx = app.globalData.jwzx
 const kcbpaerser = app.globalData.kcbpaerser
+const wxp = app.globalData.wxp
 const moment = require('../../moment.js');
 let intervalId
 import {
@@ -190,10 +191,15 @@ Page({
     }
     wx.hideLoading()
   },
-  onLoad: function () {
+  onLoad:async function () {
     // let cheerio = require('cheerio')
     // console.log(cheerio)
-
+    let result = await wxp.request({
+      url: 'https://bipt.linesoft.top/api/getNotice.json',
+    })
+    this.setData({
+      notice:result.data
+    })
 
   },
   jumpToXyk: function () {
