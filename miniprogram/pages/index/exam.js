@@ -114,6 +114,10 @@ Page({
         table = table.replace(i[0], "")
       }
       table = table.replace("<th>课程号</th>", "")
+                   .replace("考试时间","时间")
+                   .replace("考试地点","地点")
+                   .replace("考试性质","性质")
+                   .replace(/正常考试/g, "正常")
       if (timeMatch && timeMatch.length != 0) {
 
       } else {

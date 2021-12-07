@@ -12,7 +12,9 @@ Page({
    */
   data: {
     xingqiList: [],
-    range: []
+    range: [],
+    choose:0,
+    showOverlay:false
 
   },
 
@@ -21,7 +23,7 @@ Page({
    */
   onLoad: function (options) {
     let range = []
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 17; i++) {
       range.push("第" + i + "周")
     }
     this.setData({
@@ -56,7 +58,11 @@ Page({
         }
       })
     } else {
-
+      if(!wx.getStorageSync("hidden_overlay")){
+        this.setData({
+          showOverlay:true
+        })
+      }
       this.setkcb()
 
     }
@@ -98,7 +104,9 @@ Page({
           week: week ? week : kcbpaerser.getWeekNum(),
           updateTime: kcbpaerser.allweek.updateTime ? kcbpaerser.allweek.updateTime : "未知"
         })
-
+        this.setData({
+          choose:this.data.week-1
+        })
 
         // throw new Error("test")
       } catch (e) {
@@ -164,6 +172,13 @@ Page({
     let selectWeek =Number(event.detail.value)  + 1
     this.load = false
     this.setkcb(selectWeek)
+  },
+  clickKnow(){
+    wx.setStorageSync('hidden_overlay', true)
+    this.setData({
+      showOverlay : false
+    })
+    
   }
 
 })

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {"van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-cell": "@vant/weapp/cell/index"},
+  "navigationBarTitleText": "成绩查询"
+}

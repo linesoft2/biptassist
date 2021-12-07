@@ -9,3 +9,7 @@ container{
   align-items: center;
   
 }
+.table{
+  /* margin-left: 500rpx; */
+  margin: 0 20rpx;
+}

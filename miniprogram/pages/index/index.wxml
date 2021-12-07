@@ -18,8 +18,10 @@
   </block>
   <van-grid style="width:694rpx" icon-size="80rpx" class="panel">
     <van-grid-item content-class="item_content_class" link-type="navigateTo" url="/pages/index/exam" bindtap="" icon="/icon/kaoshianpai@2x.png" text="考试安排" />
+    <!-- <van-grid-item content-class="item_content_class" link-type="navigateTo" url="/pages/index/score"  icon="/icon/score@2x.png" text="成绩查询" /> -->
     <van-grid-item content-class="item_content_class" link-type="navigateTo" url="/pages/index/time" bindtap="" icon="/icon/shijianjiedian@2x.png" text="时间节点" />
     <van-grid-item content-class="item_content_class" bindtap="tapXiaoli" icon="/icon/xiaoli@2x.png" text="校历" />
+    
     <!-- <van-grid-item content-class="item_content_class"  link-type="navigateTo" url="/pages/index/donate" bindtap="" icon="/icon/money.png" text="捐助" /> -->
   </van-grid>
   <!-- <view class="xykroot">

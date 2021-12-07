@@ -1,60 +1,66 @@
 {
-  "setting": {},
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/me/me",
-          "pathName": "pages/me/me",
-          "query": "",
-          "scene": null
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
         },
-        {
-          "name": "pages/welcome/welcome1",
-          "pathName": "pages/welcome/welcome1",
-          "query": "",
-          "scene": null
+        "game": {
+            "list": []
         },
-        {
-          "name": "pages/me/jump",
-          "pathName": "pages/me/jump",
-          "query": "",
-          "scene": null
+        "gamePlugin": {
+            "list": []
         },
-        {
-          "name": "pages/index/kcb",
-          "pathName": "pages/index/kcb",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/captcha",
-          "pathName": "pages/captcha",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index/exam",
-          "pathName": "pages/index/exam",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index/time",
-          "pathName": "pages/index/time",
-          "query": "",
-          "scene": null
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/me/me",
+                    "pathName": "pages/me/me",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/welcome/welcome1",
+                    "pathName": "pages/welcome/welcome1",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/me/jump",
+                    "pathName": "pages/me/jump",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/kcb",
+                    "pathName": "pages/index/kcb",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/captcha",
+                    "pathName": "pages/captcha",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/exam",
+                    "pathName": "pages/index/exam",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/time",
+                    "pathName": "pages/index/time",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/index/score",
+                    "query": "",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  }
 }

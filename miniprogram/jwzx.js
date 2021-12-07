@@ -136,6 +136,8 @@ class Jwzx {
     //   password
     // })
   }
+
+  async 
 }
 module.exports.LoginInvalidError = LoginInvalidError
 module.exports.Jwzx = Jwzx

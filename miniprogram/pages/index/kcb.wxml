@@ -1,7 +1,12 @@
+<van-overlay show="{{ showOverlay }}" bind:click="onClickHide" z-index="2">
+<image  class="jiantou" src="/icon/jiantou.png"></image>
+<view class="tip">点击这里可以切换周数</view>
+<view class="know_button" bindtap="clickKnow">我知道了</view>
+</van-overlay>
 <view class="container">
   <view class="top">
     <!-- <image bindtap="clickMore" src="/icon/icon-class-more@2x.png" class="moreicon"></image> -->
-    <picker bindtap="changeWeek" range="{{range}}" bindchange="pickerChange" style="font-size: 30rpx; text-align: center; width:96rpx">第<text style="color: #1A73E8;font-weight:700;">{{week}}</text>周</picker>
+    <picker bindtap="changeWeek" range="{{range}}" value="{{choose}}" bindchange="pickerChange" style="font-size: 30rpx; text-align: center; width:96rpx">第<text style="color: #1A73E8;font-weight:700;">{{week}}</text>周</picker>
     <view style="width: calc(100vw - 96rpx)" class="xingqiroot">
       <block wx:for="{{xingqiList}}">
         <view class="xingqi">

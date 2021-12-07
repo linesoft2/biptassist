@@ -1,0 +1,11 @@
+/* pages/index/score.wxss */
+.top{
+    display: flex;
+    justify-content: center;
+}
+.score{
+    color: #323233;
+    font-size: 35rpx;
+    transform: translate(-20rpx,13px);
+    
+}

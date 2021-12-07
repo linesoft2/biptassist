@@ -1,42 +1,43 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/me/me",
-    "pages/me/richtext",
-    "pages/me/setting",
-    "pages/index/xyk",
-    "pages/index/kcb",
-    "pages/welcome/welcome1",
-    "pages/me/jump",
-    "pages/me/help",
-    "pages/captcha",
-    "pages/index/exam",
-    "pages/index/time"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "北石化助手",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "custom": true,
-    "color": "#000000",
-    "selectedColor": "#000000",
-    "backgroundColor": "#000000",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/me/me",
-        "text": "我的"
-      }
-    ]
-  },
-  "sitemapLocation": "sitemap.json",
-  "useExtendedLib": {
-    "weui": true
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/me/me",
+        "pages/me/richtext",
+        "pages/me/setting",
+        "pages/index/xyk",
+        "pages/index/kcb",
+        "pages/welcome/welcome1",
+        "pages/me/jump",
+        "pages/me/help",
+        "pages/captcha",
+        "pages/index/exam",
+        "pages/index/time",
+        "pages/index/score"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "北石化助手",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "custom": true,
+        "color": "#000000",
+        "selectedColor": "#000000",
+        "backgroundColor": "#000000",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/me/me",
+                "text": "我的"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json",
+    "useExtendedLib": {
+        "weui": true
+    }
 }

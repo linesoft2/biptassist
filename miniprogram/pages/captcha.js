@@ -80,14 +80,14 @@ Page({
       let result = await server.getValue("jwzx")
       await jwzx.loginUseParam(result.username, result.password, this.data.inputCap)
       wx.showModal({
-        title:"提示",
-        showCancel:false,
-        content:"登录成功，请重新点击一下您要进行的操作",
-        complete: ()=>{
+        title: "提示",
+        showCancel: false,
+        content: "登录成功，请重新点击一下您要进行的操作",
+        complete: () => {
           wx.navigateBack()
         }
       })
-      
+
     } catch (e) {
       if (e.message && e.message == "学号或密码错误") {
         jwzx.delParam()
@@ -97,7 +97,7 @@ Page({
         return
       }
       util.showError(e)
-    }finally{
+    } finally {
       wx.hideLoading({
         success: (res) => {},
       })

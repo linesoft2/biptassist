@@ -2,7 +2,7 @@
 <view class="container">
   <text wx:if="{{count != 0}}" style="text-align: center; height:66rpx">你还需要再考<text style="color: #1A73E8;font-weight:700;">{{count}}</text>科，加油！</text>
   <text wx:else style="text-align: center">恭喜，所有考试都已考完！</text>
-  <mp-html content="{{html}}" tag-style="{{tagStyle}}"/>
+  <mp-html class="table" content="{{html}}" tag-style="{{tagStyle}}"/>
   <view class="footer">
   <text>最后更新于：{{updateTime ? updateTime:"未知"}}</text><text decode style="color: #1A73E8" bindtap="updateExam">&nbsp;立即更新</text>
   </view>

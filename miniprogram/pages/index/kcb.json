@@ -1,4 +1,4 @@
 {
-  "usingComponents": {},
+  "usingComponents": {"van-overlay": "@vant/weapp/overlay/index"},
   "navigationBarTitleText": "课程表"
 }
