@@ -1,6 +1,9 @@
 {
   "usingComponents": {
-    "mp-html": "mp-html"
+    "van-cell": "@vant/weapp/cell/index",
+  "van-cell-group": "@vant/weapp/cell-group/index",
+  "van-tag": "@vant/weapp/tag/index",
+  "van-icon": "@vant/weapp/icon/index"
   },
   "navigationBarTitleText": "考试安排查询"
 

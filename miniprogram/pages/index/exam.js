@@ -17,7 +17,8 @@ Page({
       th: 'border-right: 1px solid #dfe2e5; border-bottom: 1px solid #dfe2e5;',
       td: 'border-right: 1px solid #dfe2e5; border-bottom: 1px solid #dfe2e5;',
       li: 'margin: 5px 0;'
-    }
+    },
+    examData: []
 
   },
 
@@ -56,7 +57,12 @@ Page({
         }
       })
     } else {
-      this.setExam()
+      if (exam.ver !== 2) {
+        this.updateExam(true)
+      } else {
+        this.setExam()
+      }
+
     }
   },
 
@@ -87,90 +93,82 @@ Page({
   onReachBottom: function () {
 
   },
-  async updateExam() {
+  async updateExam(fromStorage) {
     wx.showLoading({
       title: '正在加载',
     })
     try {
-      let html = await jwzx.request("academic/accessModule.do?moduleId=2030&groupId=", "GET")
-      // console.log(html.data)
-      let table = html.data.match(/\<table cellpadding="0" cellspacing="0" class="infolist_tab"\>(.*?)<\/table\>/s)
-      if (table && table.length == 2) {
-        //匹配到了
+      let table
+      if (fromStorage === true) {
+        table = exam.table
       } else {
-        //没匹配到
-        throw new Error("未获取到考试安排表格")
+        let html = await jwzx.request("academic/accessModule.do?moduleId=2030&groupId=", "GET")
+        // console.log(html.data)
+        table = html.data.match(/\<table cellpadding="0" cellspacing="0" class="infolist_tab"\>(.*?)<\/table\>/s)
+        if (table && table.length == 2) {
+          //匹配到了
+        } else {
+          //没匹配到
+          throw new Error("未获取到考试安排表格")
+        }
+        table = table[0]
       }
-      table = table[0]
-      const reg = /<td >(.*?)--/g
-      let timeMatch = Array.from(reg[Symbol.matchAll](table))
-      for (let index = 0; index < timeMatch.length; index++) {
-        timeMatch[index] = timeMatch[index][1]
+      let result = await wx.cloud.callFunction({
+        name: "main",
+        data: {
+          fun: "examParser",
+          html: table
+        }
+      })
+      result = result.result
+      if (result.code !== 0) {
+        throw new Error("云函数错误：" + result.msg)
+      }
+      // console.log(table)
+      // const reg = /<td >(.*?)--/g
+      // let timeMatch = Array.from(reg[Symbol.matchAll](table))
+      // for (let index = 0; index < timeMatch.length; index++) {
+      //   timeMatch[index] = timeMatch[index][1]
 
-      }
-      const reg1 = /<td  >(.*?)<\/td>/gs
-      let numMatch = Array.from(reg1[Symbol.matchAll](table))
-      for (let i of numMatch) {
-        table = table.replace(i[0], "")
-      }
-      table = table.replace("<th>课程号</th>", "")
-                   .replace("考试时间","时间")
-                   .replace("考试地点","地点")
-                   .replace("考试性质","性质")
-                   .replace(/正常考试/g, "正常")
-      if (timeMatch && timeMatch.length != 0) {
-
-      } else {
+      // }
+      // const reg1 = /<td  >(.*?)<\/td>/gs
+      // let numMatch = Array.from(reg1[Symbol.matchAll](table))
+      // for (let i of numMatch) {
+      //   table = table.replace(i[0], "")
+      // }
+      // table = table.replace("<th>课程号</th>", "")
+      //              .replace("考试时间","时间")
+      //              .replace("考试地点","地点")
+      //              .replace("考试性质","性质")
+      //              .replace(/正常考试/g, "正常")
+      // table = table.replace(/<td >/g, "<td>")
+      if (result.data.length === 0) {
         throw new Error("当前可能没有考试安排")
       }
-      // console.log(table)
-      table = table.replace(/<td >/g, "<td>")
-      // console.log(table)
+      const oldTime = exam.updateTime
       exam = {
-        timeMatch,
-        table,
-        updateTime: moment().format("YYYY-MM-DD HH:mm")
+        data: result.data,
+        ver: 2
+      }
+      if (fromStorage) {
+        exam.updateTime = oldTime
+      } else {
+        exam.updateTime = moment().format("YYYY-MM-DD HH:mm")
       }
       wx.setStorageSync("exam", exam)
       this.setExam()
     } catch (e) {
       errorHandle(e, true)
-    }finally{
-      
+    } finally {
+      wx.hideLoading()
     }
 
   },
   setExam() {
-    wx.showLoading({
-      title: '正在加载',
+    this.setData({
+      examData: exam.data,
+      updateTime: exam.updateTime
     })
-    try{
-      let tableReplace = exam.table
-      let count = 0
-      for (let i of exam.timeMatch) {
-        if (moment().isAfter(moment(i))) {
-          for (let index = 0; index <= 4; index++) {
-            tableReplace = tableReplace.replace("<td>", "<td ><s>").replace("</td>", "</s></td >")
-          }
-  
-        } else {
-          count++
-        }
-      }
-  
-  
-      // console.log(exam.table)
-      this.setData({
-        html: tableReplace,
-        count,
-        updateTime: exam.updateTime
-      })
-    }catch(e){
-      errorHandle(e)
-    }finally{
-      wx.hideLoading()
-    }
-    
-    
+
   }
 })

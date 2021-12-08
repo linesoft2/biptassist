@@ -6,6 +6,6 @@
 .score{
     color: #323233;
     font-size: 35rpx;
-    transform: translate(-20rpx,13px);
+    /* transform: translate(-20rpx,13px); */
     
 }

@@ -13,3 +13,13 @@ container{
   /* margin-left: 500rpx; */
   margin: 0 20rpx;
 }
+.top{
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.label{
+  /* display: flex; */
+  /* flex-direction: row; */
+}
