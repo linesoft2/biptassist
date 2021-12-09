@@ -17,11 +17,12 @@ const fun = {
               <th>考试性质</th>
         </tr>
       </table>`
-        console.log(this.data.html)
+        // console.log(this.data.html)
         var $ = require("cheerio").load(this.data.html)
         let result = []
         let reduce = 0
-        if (this.data.fromOld) {
+        if (this.data.fromOld===true) {
+            // console.log(this.data)
             reduce = 1
         }
         for (let node of $(".infolist_common")) {

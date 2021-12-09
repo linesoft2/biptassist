@@ -118,7 +118,7 @@ Page({
         data: {
           fun: "examParser",
           html: table,
-          fromOld:fromStorage
+          fromOld:fromStorage === true ? true : false
         }
       })
       result = result.result
@@ -152,7 +152,7 @@ Page({
         ver: 2
       }
 
-      if (fromStorage) {
+      if (fromStorage === true) {
         exam.updateTime = oldTime
       } else {
         exam.updateTime = moment().format("YYYY-MM-DD HH:mm")
