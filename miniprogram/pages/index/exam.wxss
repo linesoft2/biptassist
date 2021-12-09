@@ -4,10 +4,12 @@ container{
 }
 .footer{
   display: flex;
-  height: 66rpx;
+  height: 30px;
   justify-content: center;
   align-items: center;
-  
+  position:sticky; 
+  bottom: 0px;
+  background: white;
 }
 .table{
   /* margin-left: 500rpx; */
@@ -18,8 +20,14 @@ container{
   display: flex;
   flex-direction: column;
   align-items: center;
+  position:sticky; 
+  top: 0px;
+  background: white;
 }
 .label{
   /* display: flex; */
   /* flex-direction: row; */
+}
+.title-old{
+  text-decoration:line-through;
 }

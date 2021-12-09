@@ -21,7 +21,7 @@ const fun = {
         var $ = require("cheerio").load(this.data.html)
         let result = []
         let reduce = 0
-        if (this.data.formOld) {
+        if (this.data.fromOld) {
             reduce = 1
         }
         for (let node of $(".infolist_common")) {
@@ -33,7 +33,9 @@ const fun = {
 
             }
             const a = node.eq(4 - reduce).text().trim()
-            if (a !== "正常考试" || a !== "正常") {
+            
+            if (a !== "正常考试" && a !== "正常") {
+                // console.log(a)
                 obj.msg = a
             }
             result.push(obj)

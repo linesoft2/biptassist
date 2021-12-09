@@ -117,7 +117,8 @@ Page({
         name: "main",
         data: {
           fun: "examParser",
-          html: table
+          html: table,
+          fromOld:fromStorage
         }
       })
       result = result.result
@@ -150,6 +151,7 @@ Page({
         data: result.data,
         ver: 2
       }
+
       if (fromStorage) {
         exam.updateTime = oldTime
       } else {
@@ -165,10 +167,24 @@ Page({
 
   },
   setExam() {
+    let count = 0
+
+    for (let i = 0; i < exam.data.length; i++) {
+      let date = moment(exam.data[i].time.substring(0, 16))
+      let now = moment()
+      // now.set('day', 25);
+      if (now.isAfter(date)) {
+        exam.data[i].countDown = "已考完"
+      } else {
+        count++
+        exam.data[i].countDown = "还有" + date.diff(now, 'days') + "天"
+      }
+    }
     this.setData({
-      examData: exam.data,
-      updateTime: exam.updateTime
+      exam: exam,
+      count
     })
+
 
   }
 })
