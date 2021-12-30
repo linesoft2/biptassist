@@ -57,7 +57,21 @@ Page({
       this.checked = true
       try {
         // await kcbpaerser.getNewAllWeek()
+        if(kcbpaerser.isVacation()){
+          this.setData({
+            kcb: {
+              info: "寒假快乐！\n点击可查看下学期课表",
+              xs: 3
+            }
+          })
+          return
+        }
+        
+        
         if (kcbpaerser.checkStorage()) {
+
+          
+
           let thisweek = await kcbpaerser.getThisWeek()
           let today
           for (let i of thisweek) {

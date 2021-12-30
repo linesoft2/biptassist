@@ -47,7 +47,7 @@ class Jwzx {
     if (result.cookies[0] && result.cookies[0].substring("JSESSIONID") != -1) {
       this.cookie = result.cookies[0]
     }
-    if (result.data.indexOf("login_sub1.gif") != -1 || result.data.indexOf("error_black") != -1) {
+    if (result.data.indexOf("login_sub1.gif") != -1 || result.data.indexOf("error_black") != -1 || result.data.indexOf("优慕课在线教育技术支持") != -1) {
       //登录态失效，跳到登录页
       wx.navigateTo({
         url: '/pages/welcome/welcome1',

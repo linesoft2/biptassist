@@ -129,6 +129,11 @@ export class Kcbpaerser {
   constructor(wxp1, jwzx) {
 
     this.allweek = wx.getStorageSync("kcb")
+    // if(this.isVacation()===false && this.allweek.next===true){
+    //   this.allweek.next = false
+    //   wx.setStorageSync('kcb', this.allweek)
+    // }
+    this.currentCount = 1
     wxp = wxp1
     this.jwzx = jwzx
   }
@@ -137,8 +142,20 @@ export class Kcbpaerser {
     return Boolean(this.allweek)
   }
 
-  getWeekNum() {
-    // return 12
+  isOld() {
+    // return this.isVacation()&& !this.allweek.next
+    if(this.allweek.count !== undefined){
+      return this.allweek.count<this.currentCount
+    }else{
+      return true
+    }
+  }
+
+  isVacation() {
+    return this._getWeekNum() >= 17
+  }
+
+  _getWeekNum() {
     let weekFirst = moment("20210906")
     let today = moment()
     today.set('hour', weekFirst.get("hour"));
@@ -148,9 +165,20 @@ export class Kcbpaerser {
     if (today.isBefore(weekFirst)) {
       return 1
     } else {
-      return parseInt(today.diff(weekFirst, "day") / 7) + 1
-    }
+      const count = parseInt(today.diff(weekFirst, "day") / 7) + 1
+      return count
 
+    }
+  }
+  getWeekNum() {
+    // return 1
+    const count = this._getWeekNum()
+    if (count >= 17) {
+      return 1;
+    } else {
+      
+      return count
+    }
     // let result = await wxp.request({
     //   url: "https://jwzx.bipt.edu.cn/academic/calendarinfo/viewCalendarInfo.do",
     //   // header:{"Cookie":this.jwzx.Cookie}
@@ -160,7 +188,8 @@ export class Kcbpaerser {
   }
   async getNewAllWeek() {
     this.thisweek = undefined
-    let html = await this.jwzx.request("academic/accessModule.do?moduleId=2000&groupId=", "GET")
+    //https://jwzx.bipt.edu.cn/academic/student/currcourse/currcourse.jsdo?year=42&term=1
+    let html = await this.jwzx.request("academic/student/currcourse/currcourse.jsdo?year=42&term=1", "GET")
     html = html.data
     // let html
     // const modalResult = await wx.showModal({
@@ -199,6 +228,7 @@ export class Kcbpaerser {
 
     this.allweek = result.data
     this.allweek.updateTime = moment().format("YYYY-MM-DD HH:mm")
+    this.allweek.count = this.currentCount
     wx.setStorageSync('kcb', this.allweek)
   }
   async getThisWeek(jieci, fengexian, wuxiu, week) {
@@ -289,7 +319,7 @@ export class Kcbpaerser {
       } else {
         teacher = i.teacher
       }
-      if(!i.sections || i.sections.length===0){
+      if (!i.sections || i.sections.length === 0) {
         continue
       }
       let top = getTop(i.sections[0].section, jieci, fengexian, wuxiu)

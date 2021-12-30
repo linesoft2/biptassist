@@ -57,6 +57,25 @@ Page({
           }
         }
       })
+
+    } else if(kcbpaerser.isOld()){
+      wx.showModal({
+        title: "提示",
+        content: "本学期已结束，是否更新为下学期课表？",
+        success: (res) => {
+          if (res.confirm) {
+            this.updateKcb()
+
+          } else if (res.cancel) {
+            if(!wx.getStorageSync("hidden_overlay")){
+              this.setData({
+                showOverlay:true
+              })
+            }
+            this.setkcb()
+          }
+        }
+      })
     } else {
       if(!wx.getStorageSync("hidden_overlay")){
         this.setData({
