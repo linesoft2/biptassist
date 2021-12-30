@@ -22,7 +22,7 @@ class Jwzx {
     this.cookie = result.cookies[0]
     return result.tempFilePath
   }
-  async request(url1, method, data = {}) {
+  async request(url1, method, data = {},event) {
     let result = await wxp.request({
       url: url + url1,
       data: data,
@@ -49,9 +49,16 @@ class Jwzx {
     }
     if (result.data.indexOf("login_sub1.gif") != -1 || result.data.indexOf("error_black") != -1 || result.data.indexOf("优慕课在线教育技术支持") != -1) {
       //登录态失效，跳到登录页
-      wx.navigateTo({
-        url: '/pages/welcome/welcome1',
-      })
+      if(event){
+        wx.navigateTo({
+          url: '/pages/welcome/welcome1?event='+event,
+        })
+      }else{
+        wx.navigateTo({
+          url: '/pages/welcome/welcome1',
+        })
+      }
+      
       throw new LoginInvalidError("登录态失效")
     }
     return result

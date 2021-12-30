@@ -1,5 +1,5 @@
 // pages/index/exam.js
-
+import bus from 'iny-bus'
 let exam = wx.getStorageSync("exam")
 const jwzx = getApp().globalData.jwzx
 const moment = require('../../moment.js');
@@ -26,22 +26,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+    this.eventId = bus.on('exam',()=>{
+      this.updateExam()
+    })
     if (!exam) {
       wx.showModal({
         title: "提示",
@@ -64,6 +51,22 @@ Page({
       }
 
     }
+
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
   },
 
   /**
@@ -102,7 +105,7 @@ Page({
       if (fromStorage === true) {
         table = exam.table
       } else {
-        let html = await jwzx.request("academic/accessModule.do?moduleId=2030&groupId=", "GET")
+        let html = await jwzx.request("academic/accessModule.do?moduleId=2030&groupId=", "GET",{},"exam")
         // console.log(html.data)
         table = html.data.match(/\<table cellpadding="0" cellspacing="0" class="infolist_tab"\>(.*?)<\/table\>/s)
         if (table && table.length == 2) {

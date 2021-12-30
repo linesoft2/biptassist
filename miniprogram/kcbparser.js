@@ -144,9 +144,9 @@ export class Kcbpaerser {
 
   isOld() {
     // return this.isVacation()&& !this.allweek.next
-    if(this.allweek.count !== undefined){
-      return this.allweek.count<this.currentCount
-    }else{
+    if (this.allweek.count !== undefined) {
+      return this.allweek.count < this.currentCount
+    } else {
       return true
     }
   }
@@ -176,7 +176,7 @@ export class Kcbpaerser {
     if (count >= 17) {
       return 1;
     } else {
-      
+
       return count
     }
     // let result = await wxp.request({
@@ -189,7 +189,7 @@ export class Kcbpaerser {
   async getNewAllWeek() {
     this.thisweek = undefined
     //https://jwzx.bipt.edu.cn/academic/student/currcourse/currcourse.jsdo?year=42&term=1
-    let html = await this.jwzx.request("academic/student/currcourse/currcourse.jsdo?year=42&term=1", "GET")
+    let html = await this.jwzx.request("academic/student/currcourse/currcourse.jsdo?year=42&term=1", "GET", {},"kcb")
     html = html.data
     // let html
     // const modalResult = await wx.showModal({

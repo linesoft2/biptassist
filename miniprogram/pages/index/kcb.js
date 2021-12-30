@@ -1,6 +1,7 @@
 // pages/index/kcb.js
 const app = getApp()
 const kcbpaerser = app.globalData.kcbpaerser
+import bus from 'iny-bus'
 // let load = false
 import {
   errorHandle
@@ -22,6 +23,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.eventId = bus.on('kcb',()=>{
+      this.updateKcb()
+    })
     let range = []
     for (let i = 1; i <= 17; i++) {
       range.push("第" + i + "周")
@@ -29,21 +33,6 @@ Page({
     this.setData({
       range
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-    // let kcbJson = wx.getStorageSync("kcb")
     if (!kcbpaerser.checkStorage()) {
       wx.showModal({
         title: "提示",
@@ -85,19 +74,19 @@ Page({
       this.setkcb()
 
     }
+  },
 
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
 
+  },
 
-    // wx.showModal({
-    //   title: '提示',
-    //   showCancel: false,
-    //   content: "当前功能暂未开放",
-    //   complete: function(){
-    //     wx.navigateBack({
-    //       delta: 0,
-    //     })
-    //   }
-    // })
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
   },
 
 

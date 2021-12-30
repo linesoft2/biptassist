@@ -1,10 +1,10 @@
-<van-dropdown-menu active-color="#1A73E8">
+<van-dropdown-menu active-color="#1A73E8" class="menu">
   <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
   <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
 </van-dropdown-menu>
-<view style="height: 10px;"></view>
-<van-cell-group inset>
-<block wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}">
+<!-- <view style="height: 10px;"></view> -->
+<van-cell-group inset class="list">
+<block wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14]}}">
     <van-cell title="高等数学" label="3 学分" border center>
     <view class="score">A</view> 
 </van-cell>

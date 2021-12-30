@@ -1,4 +1,6 @@
+import bus from 'iny-bus'
 // pages/welcome/welcome1.js
+
 const app = getApp()
 const server = app.globalData.server
 const jwzx = app.globalData.jwzx
@@ -22,6 +24,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    if(options){
+      this.event = options.event
+    }
     const data = wx.getStorageSync('jwzx')
     if(data){
       this.setData(
@@ -120,15 +125,12 @@ Page({
         }else{
           wx.removeStorageSync('jwzx')
         }
-        wx.showModal({
-          title:"提示",
-          showCancel:false,
-          content:"登录成功，请重新点击一下您要进行的操作",
-          complete: ()=>{
-            wx.navigateBack()
-          }
-        })
-      // wx.navigateBack()
+        wx.navigateBack()
+        if(this.event){
+          bus.emit(this.event)
+        }
+        
+      
     } catch (e) {
       if (e.message && e.message == "学号或密码错误") {
         this.onLoad()

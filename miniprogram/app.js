@@ -11,7 +11,8 @@ App({
     kcbpaerser: undefined,
     canRefresh: false,
     testAccount: false,
-    wxp: {}
+    wxp: {},
+    loginFun:{}
   },
   onLaunch: function () {
     // wx.showLoading({

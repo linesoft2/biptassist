@@ -25,7 +25,8 @@ const fun = {
             // console.log(this.data)
             reduce = 1
         }
-        for (let node of $(".infolist_common")) {
+        // let node = [...$(".infolist_common"),...]
+        for (let node of $(".infolist_common, .infolist_common_blur")) {
             node = $(node).children()
             let obj = {
                 name: node.eq(1 - reduce).text(),

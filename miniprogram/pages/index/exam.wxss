@@ -31,3 +31,6 @@ container{
 .title-old{
   text-decoration:line-through;
 }
+/* .cell{
+  filter: grayscale(100%);
+} */

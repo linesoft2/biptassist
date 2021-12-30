@@ -8,7 +8,7 @@
   <van-cell-group inset>
     <block wx:for="{{exam.data}}">
 
-      <van-cell value="{{item.countDown}}" use-label-slot center title-width="400rpx" size="large">
+      <van-cell value="{{item.countDown}}" use-label-slot center title-width="400rpx" size="large" class="cell">
         <view slot="title" class="{{item.countDown === '已考完' ? 'title-old' : ''}}">
           {{item.name}}<van-tag wx:if="{{item.msg}}" type="danger" plain size="middle">{{item.msg}}</van-tag>
         </view>
