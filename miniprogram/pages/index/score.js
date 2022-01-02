@@ -1,9 +1,13 @@
-// pages/index/score.js
+import {
+  errorHandle
+} from '../../utils/util'
+const jwzx = getApp().globalData.jwzx
+import bus from 'iny-bus'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
+  _data: {
+    value1: 41,
+    value2: 2,
+  },
   data: {
     option1: [{
         text: '2022',
@@ -43,63 +47,55 @@ Page({
         value: 2
       },
     ],
-    value1: 41,
-    value2: 1,
+    score:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.eventId = bus.on('score', () => {
+      this.getScore()
+    })
+    this.setData(this._data)
+    this.getScore()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  changeValue1(e) {
+    this._data.value1 = e.detail
+    this.getScore()
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  changeValue2(e) {
+    this._data.value2 = e.detail
+    this.getScore()
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  async getScore() {
+    wx.showLoading({
+      title: '正在加载',
+    })
+    try {
+      await jwzx.request("academic/accessModule.do?moduleId=2070", "GET", {}, "score")
+      let result = await jwzx.request("academic/manager/score/studentOwnScore.do", "POST", "year=" + this._data.value1 + "&term=" + this._data.value2 + "&prop=&groupName=&para=0&sortColumn=&Submit=%E6%9F%A5%E8%AF%A2")
+      let funResult = await wx.cloud.callFunction({
+        name: "main",
+        data: {
+          fun: "scoreParser",
+          html: result.data
+        }
+      })
+      funResult = funResult.result
+      if (funResult.code !== 0) {
+        throw new Error("云函数错误：" + funResult.msg)
+      }
+      this.setData({
+        score: funResult.data
+      })
+      
+    } catch (e) {
+      errorHandle(e)
+    }finally{
+      wx.hideLoading()
+    }
 
   }
 })

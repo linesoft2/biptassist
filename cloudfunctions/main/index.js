@@ -3,20 +3,21 @@ const fun = {
     data: {},
     async scoreParser() {
         var $ = require("cheerio").load(this.data.html)
-
+        let result = []
+        for (let tr of $(".datalist tr")) {
+            tr = $(tr).children()
+            if(tr[0].name==="th"){
+                continue
+            }
+            result.push({
+                name:tr.eq(5).text().trim(),
+                xuefen:tr.eq(6).text().trim(),
+                score:tr.eq(15).text().trim(),
+            })
+        }
+        return result
     },
     async examParser() {
-
-        const html = `<table cellpadding="0" cellspacing="0" class="infolist_tab">
-        <tr>
-          <th>课程号</th>  
-          <th>课程名称</th>
-          <th>考试时间</th>
-          <th>考试地点</th>
-          <!--<th>考试方式</th>-->
-              <th>考试性质</th>
-        </tr>
-      </table>`
         // console.log(this.data.html)
         var $ = require("cheerio").load(this.data.html)
         let result = []

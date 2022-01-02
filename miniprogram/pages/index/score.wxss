@@ -9,6 +9,9 @@
     /* transform: translate(-20rpx,13px); */
     
 }
+.f{
+    color: red;
+}
 .van-dropdown-menu{
     position:sticky; 
     top:0px;
