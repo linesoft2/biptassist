@@ -96,6 +96,6 @@
     </view>
   </scroll-view>
   <view class="footer">
-  <text>最后更新于：{{updateTime}}</text><text decode style="color: #1A73E8" bindtap="updateKcb">&nbsp;立即更新</text>
+  <text>最后更新于：{{updateTime}}</text><text decode style="color: #1A73E8" bindtap="updateKcb" bindlongpress="updateLong">&nbsp;立即更新</text>
   </view>
 </view>

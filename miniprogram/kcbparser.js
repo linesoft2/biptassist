@@ -156,7 +156,7 @@ export class Kcbpaerser {
   }
 
   _getWeekNum() {
-    let weekFirst = moment("20210906")
+    let weekFirst = moment("20220221")
     let today = moment()
     today.set('hour', weekFirst.get("hour"));
     today.set('minute', weekFirst.get("minute"));
@@ -186,7 +186,14 @@ export class Kcbpaerser {
     // let reg = /\<strong\>(.*?)\<\/strong\>/
     // return parseInt(reg.exec(result.data)[1])
   }
-  async getNewAllWeek() {
+  async getNewAllWeek(develop,data) {
+    if(develop === true){
+      this.allweek = data
+    this.allweek.updateTime = moment().format("YYYY-MM-DD HH:mm")
+    this.allweek.count = this.currentCount
+    wx.setStorageSync('kcb', this.allweek)
+    return
+    }
     this.thisweek = undefined
     //https://jwzx.bipt.edu.cn/academic/student/currcourse/currcourse.jsdo?year=42&term=1
     let html = await this.jwzx.request("academic/student/currcourse/currcourse.jsdo?year=42&term=1", "GET", {},"kcb")

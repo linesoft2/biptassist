@@ -187,6 +187,18 @@ Page({
       showOverlay : false
     })
     
+  },
+  updateLong(){
+    wx.showModal({
+      title: '开发者使用',
+      editable:true,
+      placeholderText:"输入json代码",
+      success : async (res) =>{
+        await kcbpaerser.getNewAllWeek(true,JSON.parse(res.content))
+        this.load = false
+      this.setkcb()
+      }
+    })
   }
 
 })
