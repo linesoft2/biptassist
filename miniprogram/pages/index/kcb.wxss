@@ -2,7 +2,8 @@
   width: 84rpx;
   height: 84rpx;
 }
-.know_button{
+
+.know_button {
   position: fixed;
   top: 800rpx;
   left: 320rpx;
@@ -11,19 +12,22 @@
   padding: 9rpx;
   border-radius: 10rpx;
 }
-.jiantou{
+
+.jiantou {
   position: fixed;
   top: -10rpx;
   left: -140rpx;
-  transform:rotate(-40deg);
+  transform: rotate(-40deg);
 }
-.tip{
+
+.tip {
   position: fixed;
   top: 250rpx;
   left: 320rpx;
   color: white;
   font-size: 40rpx;
 }
+
 .top {
   display: flex;
   flex-direction: row;
@@ -84,22 +88,38 @@
   text-align: center;
   line-height: 35rpx;
 }
-.main{
+
+.main {
+
   width: calc(100vw - 96rpx);
-  background: #F1F1F1;
+  
   display: flex;
   justify-content: space-around;
 }
-.down{
+.mainmeitian_background{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left:0;
+  /* height: 100%; */
+  /* width: 100%; */
+  /* background-color: red; */
+  z-index: -1;
+  background: #F1F1F1;
+}
+.down {
   display: flex;
   flex-direction: row;
-  
+
 }
-.course{
+
+.course {
   width: inherit;
   height: 170px;
-  box-shadow: 0px 6px 34px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
+  /* box-shadow: 0px 6px 34px rgba(0, 0, 0, 0.1); */
+  border-radius: 8px;
+  /* opacity: 0.2; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,26 +127,60 @@
   justify-content: center;
   font-size: 28rpx;
 }
-.course_1{
+
+.course_1 {
   background: linear-gradient(139deg, rgba(52, 133, 241, 0.2) 0%, rgba(5, 99, 222, 0.2) 100%);
   color: #0563DE;
 }
-.mainmeitian{
+
+.course_2 {
+  background: linear-gradient(316deg, rgba(255, 61, 0, 0.2) 0%, rgba(255, 126, 86, 0.2) 100%);
+  color: #FF3D00;
+}
+
+.course_3 {
+  background: linear-gradient(317deg, rgba(255, 162, 0, 0.2) 0%, rgba(233, 161, 89, 0.2) 100%);
+  color: #C16000;
+}
+
+.course_4 {
+  background: linear-gradient(319deg, rgba(0, 150, 174, 0.2) 0%, rgba(82, 199, 217, 0.2) 100%);
+  color: #007272;
+}
+
+.course_5 {
+  background: linear-gradient(139deg, rgba(93, 80, 213, 0.2) 0%, rgba(40, 28, 152, 0.2) 100%);
+  color: #2A006A;
+}
+
+.mainmeitian {
   display: flex;
   flex-direction: column;
   /* width: 88rpx; */
   flex: 1;
   align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
-.xingqiroot{
+
+.xingqiroot {
   display: flex;
   justify-content: space-around;
 }
 
-.footer{
+.footer {
   display: flex;
   height: 66rpx;
   justify-content: center;
   align-items: center;
-  
+
+}
+
+.blank{
+/* background: linear-gradient(137deg, rgba(113, 174, 255, 0.05) 0%, rgba(5, 99, 222, 0.05) 100%);
+height: 116rpx;
+margin: 10px 10px; */
+
+/* border-radius: 8px; */
 }

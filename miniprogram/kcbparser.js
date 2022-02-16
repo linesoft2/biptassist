@@ -239,22 +239,8 @@ export class Kcbpaerser {
     wx.setStorageSync('kcb', this.allweek)
   }
   async getThisWeek(jieci, fengexian, wuxiu, week) {
-    // this.aaa == dwwwd
-    // if (this.thisweek) {
-    //   for (let index = 0; index < this.thisweek.length; index++) {
-    //     this.thisweek[index].today = false
-    //   }
-    //   let day = moment().day()
-    //   if (day == 0) {
-    //     day = 7
-    //   }
-    //   try{
-    //     this.thisweek[day - 1].today = true
-    //   }catch(e){}
-
-    //   return this.thisweek
-    // }
     if (!this.checkStorage()) return
+    let kcbColor =  wx.getStorageSync('kcbColor')
     let thisweek = [{
         t1: "周一",
         t2: "1",
@@ -338,7 +324,21 @@ export class Kcbpaerser {
         // console.log(n)
         sections.push(n.section)
       }
-
+      if(!kcbColor){
+        kcbColor = {globalColor:1}
+      }
+      if(kcbColor.globalColor >= 5){
+        kcbColor.globalColor = 1
+      }
+      let color
+      if(kcbColor[name]){
+        color = kcbColor[name]
+        
+      }else{
+        color = kcbColor.globalColor
+        kcbColor[name] = color
+        kcbColor.globalColor++
+      }
       let courceinfo = {
         name,
         classroom,
@@ -347,7 +347,7 @@ export class Kcbpaerser {
         height,
         start,
         end,
-        color: "1",
+        color,
         sections
       }
       // console.log(i.day - 1)
@@ -361,6 +361,8 @@ export class Kcbpaerser {
       thisweek.pop()
     }
     this.thisweek = thisweek
+    wx.setStorageSync('kcbColor', kcbColor)
+    console.log(thisweek)
     return thisweek
   }
 }
