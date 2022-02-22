@@ -362,7 +362,6 @@ export class Kcbpaerser {
     }
     this.thisweek = thisweek
     wx.setStorageSync('kcbColor', kcbColor)
-    console.log(thisweek)
     return thisweek
   }
 }

@@ -17,36 +17,72 @@ class Jwzx {
 
   async getCaptcha() {
     let result = await wxp.downloadFile({
-      url: url + "academic/getCaptcha.do",
+      url: "https://biptproxy.linesoft.top/captcha",
     })
     this.cookie = result.cookies[0]
     return result.tempFilePath
   }
-  async request(url1, method, data = {},event) {
-    let result = await wxp.request({
-      url: url + url1,
-      data: data,
-      header: {
-        "cookie": this.cookie,
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      method: method,
-      dataType: "notjson",
-      responseType: "arraybuffer"
-    })
-    const {
-      Buffer
-    } = require("buffer");
-    var iconv = require("iconv-lite");
-    if(result.header["Content-Type"].indexOf("UTF-8") ==-1){
-      result.data = iconv.decode(Buffer.from(result.data), 'GBK');
+  async request(url1, method, data = {},event,getData) {
+    const proxy = true
+    let result
+    if(proxy){
+      if(typeof data !== "string"){
+        data = JSON.stringify(data)
+      }
+      let timeStamp = (Date.parse(new Date())/1000).toString()
+      let addr
+      if(getData === true){
+        addr = url + url1 + data
+      }else{
+        addr = url + url1
+      }
+      
+      let md5 = require('md5')
+      result = await wxp.request({
+        url:"https://biptproxy.linesoft.top/main",
+        method:"POST",
+        data:{addr,
+          method: method,
+          body:  data,
+          timeStamp,
+          sign: md5('jwzxproxy00Zl'+addr+timeStamp),
+          cookie: this.cookie
+        }
+      })
+      
     }else{
-      result.data = iconv.decode(Buffer.from(result.data), 'UTF-8');
+      result = await wxp.request({
+        url: url + url1,
+        data: data,
+        header: {
+          "cookie": this.cookie,
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        method: method,
+        dataType: "notjson",
+        responseType: "arraybuffer"
+      })
+      const {
+        Buffer
+      } = require("buffer");
+      var iconv = require("iconv-lite");
+      if(result.header["Content-Type"].indexOf("UTF-8") ==-1){
+        result.data = iconv.decode(Buffer.from(result.data), 'GBK');
+      }else{
+        result.data = iconv.decode(Buffer.from(result.data), 'UTF-8');
+      }
     }
-    // console.log(result)
-    if (result.cookies[0] && result.cookies[0].substring("JSESSIONID") != -1) {
+    if(typeof result.data !=="string" ){
+      result.data = result.data.toString()
+    }
+    if(result.data.indexOf("##Error##")!==-1){
+        throw new Error("BIPTProxy："+result.data)
+      }
+    if (result.cookies[0] && result.cookies[0].indexOf("JSESSIONID") != -1) {
       this.cookie = result.cookies[0]
     }
+    // console.log(result)
+    
     if (result.data.indexOf("login_sub1.gif") != -1 || result.data.indexOf("error_black") != -1 || result.data.indexOf("优慕课在线教育技术支持") != -1) {
       //登录态失效，跳到登录页
       if(event){
@@ -64,9 +100,7 @@ class Jwzx {
     return result
   }
   async checkCaptcha(captcha) {
-    let result = await this.request("academic/checkCaptcha.do", "GET", {
-      captchaCode: captcha
-    })
+    let result = await this.request("academic/checkCaptcha.do", "GET", "?captchaCode="+captcha,undefined,true)
     // console.log(result)
     return result.data === "false" ? false : true;
   }
