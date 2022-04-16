@@ -125,10 +125,14 @@ Page({
         }else{
           wx.removeStorageSync('jwzx')
         }
-        wx.navigateBack()
-        if(this.event){
-          bus.emit(this.event)
-        }
+        wx.navigateBack({
+          success:()=>{
+            if(this.event){
+              bus.emit(this.event)
+            }
+          }
+        })
+        
         
       
     } catch (e) {
