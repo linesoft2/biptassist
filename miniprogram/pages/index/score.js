@@ -76,6 +76,9 @@ Page({
     try {
       await jwzx.request("academic/accessModule.do?moduleId=2070", "GET", {}, "score")
       let result = await jwzx.request("academic/manager/score/studentOwnScore.do", "POST", "year=" + this._data.value1 + "&term=" + this._data.value2 + "&prop=&groupName=&para=0&sortColumn=&Submit=%E6%9F%A5%E8%AF%A2")
+      if(result.data.indexOf("没有参加评教")!==-1){
+        throw new Error("没有参加评教，请登录教务系统点击“教学评价”模块评教后才可查看成绩。")
+      }
       let funResult = await wx.cloud.callFunction({
         name: "main",
         data: {
