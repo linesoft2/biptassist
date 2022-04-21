@@ -33,12 +33,12 @@
         <image slot="icon" src="/icon/help-circle.png"
           style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
       </mp-cell> -->
-      <view style="position:relative;">
+      <!-- <view style="position:relative;">
         <button open-type="feedback" class="hide_button"></button>
       <mp-cell link hover url="/pages/me/jump?t=1" value="反馈">
         <image slot="icon" src="/icon/get.png"
           style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
-      </mp-cell></view>
+      </mp-cell></view> -->
       <mp-cell link hover url="/pages/me/richtext?url=https://cdn.linesoft.top/bipt/about.md" value="关于">
         <image slot="icon" src="/icon/icon-about@2x.png"
           style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>

@@ -21,9 +21,11 @@ function scheduleHtmlParser(html) {
             let info = $(infoArr[n]).children()
             let infoTextArr = info.text().trim().replace(/[\r\n]/g, "").split("                    ")
             //["第1-5全周", "星期三", "第6,7节", "康404"]
-            let weeks = createWeeks(infoTextArr[0].trim())
-            let week = createWeek(infoTextArr[1].trim())
-            let sections = createSections(infoTextArr[2].trim())
+            
+            let weeks = createWeeks(infoTextArr[0])
+            
+            let week = createWeek(infoTextArr[1])
+            let sections = createSections(infoTextArr[2])
             let position = ""
             if(infoTextArr[3]){
                 position = infoTextArr[3].replace("（）", "").trim()
