@@ -25,7 +25,7 @@
       <!-- <button style="opacity: 0;"> -->
       <view style="position:relative;">
         <button open-type="contact" class="hide_button"></button>
-      <mp-cell link hover value="客服">
+      <mp-cell link hover value="联系作者">
         <image slot="icon" src="/icon/server.png"
           style="margin-right: 20rpx;vertical-align: middle;width: 48rpx; height: 48rpx;"></image>
       </mp-cell></view>

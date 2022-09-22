@@ -1,7 +1,9 @@
 //app.js
 const utils = require("./utils/util.js")
 import { promisifyAll } from 'miniprogram-api-promise';
-import {Kcbpaerser} from './kcbparser'
+import { Kcbpaerser } from './kcbparser'
+
+
 App({
   globalData: {
     windowheight: 10,
@@ -12,16 +14,9 @@ App({
     canRefresh: false,
     testAccount: false,
     wxp: {},
-    loginFun:{}
+    loginFun: {}
   },
   onLaunch: function () {
-    // wx.showLoading({
-    //   title: '正在初始化',
-    //   mask: true
-    // })
-    
-    
-    // console.log(server)
     wx.cloud.init()
     const sysInfo = wx.getSystemInfoSync()
     this.globalData.windowheight = sysInfo.statusBarHeight - wx.getMenuButtonBoundingClientRect().height
@@ -31,10 +26,10 @@ App({
     server = new server(this.globalData.wxp)
     this.globalData.server = server
     let jwzx = require("./jwzx.js").Jwzx
-    jwzx = new jwzx(server,this.globalData.wxp)
+    jwzx = new jwzx(server, this.globalData.wxp)
     this.globalData.jwzx = jwzx
-    this.globalData.kcbpaerser =new Kcbpaerser(this.globalData.wxp,jwzx)
-    
+    this.globalData.kcbpaerser = new Kcbpaerser(this.globalData.wxp, jwzx)
+
 
     // server.init()
     // server.request({mod:"getValue",value:"test"})

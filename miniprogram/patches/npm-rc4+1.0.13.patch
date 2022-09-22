@@ -1,0 +1,15 @@
+diff --git a/node_modules/npm-rc4/index.js b/node_modules/npm-rc4/index.js
+index 0e94e04..311ae16 100644
+--- a/node_modules/npm-rc4/index.js
++++ b/node_modules/npm-rc4/index.js
+@@ -172,8 +172,9 @@ function isBase64(str) {
+ }
+ 
+ function rc4(str, key) {
++  var i
+     let s = [], j = 0, x, res = '';
+-    for (let i = 0; i < 256; i++) {
++    for (i = 0; i < 256; i++) {
+         s[i] = i;
+     }
+     for (i = 0; i < 256; i++) {

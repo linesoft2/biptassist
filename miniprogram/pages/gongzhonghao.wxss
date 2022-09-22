@@ -1,0 +1,4 @@
+.container{
+  align-items: center;
+  margin-top: 30rpx;
+}

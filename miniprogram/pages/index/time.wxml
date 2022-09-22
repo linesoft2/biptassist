@@ -1,5 +1,9 @@
 <!--pages/index/time.wxml-->
 <van-tabs active="{{ active }}" bind:change="onChange" color="#1A73E8" swipeable sticky animated>
+  <van-tab title="核酸检测时间" class="content">
+    <mp-html content="{{hesuan}}" markdown>
+    </mp-html>
+  </van-tab>
   <van-tab title="主校食堂营业时间" class="content">
     <mp-html content="{{qingyuan}}" markdown>
     </mp-html>
@@ -13,3 +17,4 @@
     </mp-html>
   </van-tab>
 </van-tabs>
+<view class="tip">时间仅供参考，请以实际为准</view>

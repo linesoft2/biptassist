@@ -1,5 +1,6 @@
 // pages/index/exam.js
 import bus from 'iny-bus'
+import { examParser } from '../../parser'
 let exam = wx.getStorageSync("exam")
 const jwzx = getApp().globalData.jwzx
 const moment = require('../../moment.js');
@@ -26,7 +27,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.eventId = bus.on('exam',()=>{
+    this.eventId = bus.on('exam', () => {
       this.updateExam()
     })
     if (!exam) {
@@ -66,7 +67,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
@@ -105,7 +106,7 @@ Page({
       if (fromStorage === true) {
         table = exam.table
       } else {
-        let html = await jwzx.request("academic/accessModule.do?moduleId=2030&groupId=", "GET",{},"exam")
+        let html = await jwzx.request("academic/accessModule.do?moduleId=2030&groupId=", "GET", {}, "exam")
         // console.log(html.data)
         table = html.data.match(/\<table cellpadding="0" cellspacing="0" class="infolist_tab"\>(.*?)<\/table\>/s)
         if (table && table.length == 2) {
@@ -116,42 +117,16 @@ Page({
         }
         table = table[0]
       }
-      let result = await wx.cloud.callFunction({
-        name: "main",
-        data: {
-          fun: "examParser",
-          html: table,
-          fromOld:fromStorage === true ? true : false
-        }
+      const result = examParser({
+        html: table,
+        fromOld: fromStorage === true ? true : false
       })
-      result = result.result
-      if (result.code !== 0) {
-        throw new Error("云函数错误：" + result.msg)
-      }
-      // console.log(table)
-      // const reg = /<td >(.*?)--/g
-      // let timeMatch = Array.from(reg[Symbol.matchAll](table))
-      // for (let index = 0; index < timeMatch.length; index++) {
-      //   timeMatch[index] = timeMatch[index][1]
-
-      // }
-      // const reg1 = /<td  >(.*?)<\/td>/gs
-      // let numMatch = Array.from(reg1[Symbol.matchAll](table))
-      // for (let i of numMatch) {
-      //   table = table.replace(i[0], "")
-      // }
-      // table = table.replace("<th>课程号</th>", "")
-      //              .replace("考试时间","时间")
-      //              .replace("考试地点","地点")
-      //              .replace("考试性质","性质")
-      //              .replace(/正常考试/g, "正常")
-      // table = table.replace(/<td >/g, "<td>")
-      if (result.data.length === 0) {
+      if (result.length === 0) {
         throw new Error("当前可能没有考试安排")
       }
       const oldTime = exam.updateTime
       exam = {
-        data: result.data,
+        data: result,
         ver: 2
       }
 

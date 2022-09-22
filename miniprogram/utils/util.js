@@ -67,7 +67,7 @@ export function errorHandle(e, back) {
       showError(e.errMsg,back)
     } else {
       // console.log(e)
-      showError(e,back)
+      showError(JSON.stringify(e),back)
     }
 
   }

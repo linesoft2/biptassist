@@ -1,0 +1,50 @@
+diff --git a/node_modules/parse5/dist/cjs/serializer/index.js b/node_modules/parse5/dist/cjs/serializer/index.js
+index a6b1226..291f2cb 100644
+--- a/node_modules/parse5/dist/cjs/serializer/index.js
++++ b/node_modules/parse5/dist/cjs/serializer/index.js
+@@ -2,7 +2,7 @@
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.serializeOuter = exports.serialize = void 0;
+ const html_js_1 = require("../common/html.js");
+-const escape_js_1 = require("entities/lib/escape.js");
++const escape_js_1 = require("entities");
+ const default_js_1 = require("../tree-adapters/default.js");
+ // Sets
+ const VOID_ELEMENTS = new Set([
+diff --git a/node_modules/parse5/dist/cjs/tokenizer/index.js b/node_modules/parse5/dist/cjs/tokenizer/index.js
+index 027b952..6a72f5b 100644
+--- a/node_modules/parse5/dist/cjs/tokenizer/index.js
++++ b/node_modules/parse5/dist/cjs/tokenizer/index.js
+@@ -4,7 +4,7 @@ exports.Tokenizer = exports.TokenizerMode = void 0;
+ const preprocessor_js_1 = require("./preprocessor.js");
+ const unicode_js_1 = require("../common/unicode.js");
+ const token_js_1 = require("../common/token.js");
+-const decode_js_1 = require("entities/lib/decode.js");
++const decode_js_1 = require("entities");
+ const error_codes_js_1 = require("../common/error-codes.js");
+ const html_js_1 = require("../common/html.js");
+ //C1 Unicode control character reference replacements
+diff --git a/node_modules/parse5/dist/serializer/index.js b/node_modules/parse5/dist/serializer/index.js
+index f8d6e34..d4de223 100644
+--- a/node_modules/parse5/dist/serializer/index.js
++++ b/node_modules/parse5/dist/serializer/index.js
+@@ -1,5 +1,5 @@
+ import { TAG_NAMES as $, NS, hasUnescapedText } from '../common/html.js';
+-import { escapeText, escapeAttribute } from 'entities/lib/escape.js';
++import { escapeText, escapeAttribute } from 'entities';
+ import { defaultTreeAdapter } from '../tree-adapters/default.js';
+ // Sets
+ const VOID_ELEMENTS = new Set([
+diff --git a/node_modules/parse5/dist/tokenizer/index.js b/node_modules/parse5/dist/tokenizer/index.js
+index 42b6041..4057dcb 100644
+--- a/node_modules/parse5/dist/tokenizer/index.js
++++ b/node_modules/parse5/dist/tokenizer/index.js
+@@ -1,7 +1,7 @@
+ import { Preprocessor } from './preprocessor.js';
+ import { CODE_POINTS as $, SEQUENCES as $$, REPLACEMENT_CHARACTER, isSurrogate, isUndefinedCodePoint, isControlCodePoint, } from '../common/unicode.js';
+ import { TokenType, getTokenAttr, } from '../common/token.js';
+-import { htmlDecodeTree, BinTrieFlags, determineBranch } from 'entities/lib/decode.js';
++import { htmlDecodeTree, BinTrieFlags, determineBranch } from 'entities';
+ import { ERR } from '../common/error-codes.js';
+ import { TAG_ID, getTagID } from '../common/html.js';
+ //C1 Unicode control character reference replacements

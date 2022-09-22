@@ -1,0 +1,5 @@
+<view class="container">
+  <text>请长按识别二维码关注，感谢您的关注!</text>
+  <image src="/icon/gzh_qr.jpg" mode="widthFix" show-menu-by-longpress></image>
+</view>
+

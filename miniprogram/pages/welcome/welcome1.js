@@ -136,13 +136,13 @@ Page({
         
       
     } catch (e) {
-      if (e.message && e.message == "学号或密码错误") {
+      if (e.message && e.message == "用户名或密码错误") {
         this.onLoad()
         this.setData({
           cap:""
         })
       }
-      util.showError(e)
+      util.errorHandle(e)
     } finally {
       this.setData({
         btn_load: false

@@ -66,13 +66,12 @@ Page({
         }
       })
     } else {
-      if(!wx.getStorageSync("hidden_overlay")){
-        this.setData({
-          showOverlay:true
-        })
-      }
       this.setkcb()
-
+    }
+    if(!wx.getStorageSync("hidden_overlay")){
+      this.setData({
+        showOverlay:true
+      })
     }
   },
 
@@ -169,13 +168,6 @@ Page({
       errorHandle(e)
     }
   },
-  changeWeek() {
-    // wx.showToast({
-    //   title: '切换周数功能还未完成，敬请期待',
-    //   icon:"none"
-    // })
-
-  },
   pickerChange(event) {
     let selectWeek =Number(event.detail.value)  + 1
     this.load = false
@@ -189,6 +181,7 @@ Page({
     
   },
   updateLong(){
+    return
     wx.showModal({
       title: '开发者使用',
       editable:true,

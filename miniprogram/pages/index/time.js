@@ -34,6 +34,16 @@ Page({
         )
       }
     })
+    wx.request({
+      url: 'https://cdn.linesoft.top/bipt/time/hesuan.md',
+      success: (e) => {
+        this.setData(
+          {
+            hesuan: e.data
+          }
+        )
+      }
+    })
   },
 
   /**

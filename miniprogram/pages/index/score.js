@@ -1,12 +1,11 @@
-import {
-  errorHandle
-} from '../../utils/util'
+import { errorHandle } from '../../utils/util'
+import { scoreParser } from '../../parser'
 const jwzx = getApp().globalData.jwzx
 import bus from 'iny-bus'
 Page({
   _data: {
-    value1: 41,
-    value2: 2,
+    value1: 42,
+    value2: 1,
   },
   data: {
     option1: [{
@@ -79,19 +78,9 @@ Page({
       if(result.data.indexOf("没有参加评教")!==-1){
         throw new Error("没有参加评教，请登录教务系统点击“教学评价”模块评教后才可查看成绩。")
       }
-      let funResult = await wx.cloud.callFunction({
-        name: "main",
-        data: {
-          fun: "scoreParser",
-          html: result.data
-        }
-      })
-      funResult = funResult.result
-      if (funResult.code !== 0) {
-        throw new Error("云函数错误：" + funResult.msg)
-      }
+
       this.setData({
-        score: funResult.data
+        score: scoreParser(result.data)
       })
       
     } catch (e) {

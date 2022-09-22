@@ -1,0 +1,14 @@
+diff --git a/node_modules/entities/lib/index.js b/node_modules/entities/lib/index.js
+index 3ba8b92..c447c2a 100644
+--- a/node_modules/entities/lib/index.js
++++ b/node_modules/entities/lib/index.js
+@@ -4,6 +4,9 @@ exports.decodeXMLStrict = exports.decodeHTML5Strict = exports.decodeHTML4Strict
+ var decode_js_1 = require("./decode.js");
+ var encode_js_1 = require("./encode.js");
+ var escape_js_1 = require("./escape.js");
++exports.htmlDecodeTree = decode_js_1.htmlDecodeTree
++exports.BinTrieFlags = decode_js_1.BinTrieFlags
++exports.determineBranch = decode_js_1.determineBranch
+ /** The level of entities to support. */
+ var EntityLevel;
+ (function (EntityLevel) {

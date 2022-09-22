@@ -60,7 +60,7 @@ Page({
         if(kcbpaerser.isVacation()){
           this.setData({
             kcb: {
-              info: "寒假快乐！\n点击可查看下学期课表",
+              info: "暑假快乐！\n点击可查看下学期课表",
               xs: 3
             }
           })
@@ -271,7 +271,7 @@ Page({
   },
   clickBanner() {
     wx.navigateTo({
-      url: '/pages/me/richtext?url=https://cdn.linesoft.top/bipt/about.md',
+      url: '/pages/gongzhonghao',
     })
   },
   tapXiaoli(){
@@ -279,7 +279,7 @@ Page({
     //   sources: [{url:"http://www.bipt.edu.cn/pub/jwc//images/content/2021-05/20210511162069747382501432.png"}],
     // })
     wx.previewImage({
-      urls: ["http://www.bipt.edu.cn/pub/jwc//images/content/2021-05/20210511162069747382501432.png"],
+      urls: ["http://www.bipt.edu.cn/pub/jwc//images/content/2022-06/20220625165614701126004757.png"],
     })
   }
 })

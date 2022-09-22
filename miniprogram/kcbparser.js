@@ -1,3 +1,4 @@
+import {scheduleParser} from './parser'
 let wxp = {}
 const moment = require('moment.js');
 
@@ -133,7 +134,7 @@ export class Kcbpaerser {
     //   this.allweek.next = false
     //   wx.setStorageSync('kcb', this.allweek)
     // }
-    this.currentCount = 1
+    this.currentCount = 2
     wxp = wxp1
     this.jwzx = jwzx
   }
@@ -156,7 +157,7 @@ export class Kcbpaerser {
   }
 
   _getWeekNum() {
-    let weekFirst = moment("20220221")
+    let weekFirst = moment("20220829")
     let today = moment()
     today.set('hour', weekFirst.get("hour"));
     today.set('minute', weekFirst.get("minute"));
@@ -196,7 +197,7 @@ export class Kcbpaerser {
     }
     this.thisweek = undefined
     //https://jwzx.bipt.edu.cn/academic/student/currcourse/currcourse.jsdo?year=42&term=1
-    let html = await this.jwzx.request("academic/student/currcourse/currcourse.jsdo?year=42&term=1", "GET", {},"kcb")
+    let html = await this.jwzx.request("academic/student/currcourse/currcourse.jsdo?year=42&term=2", "GET", {},"kcb")
     html = html.data
     // let html
     // const modalResult = await wx.showModal({
@@ -221,19 +222,8 @@ export class Kcbpaerser {
     //   },
     //   data: html
     // })
-    let result = await wx.cloud.callFunction({
-      name: "kcbparser",
-      data: {
-        html
-      }
-    })
-    result = result.result
-    if (result.errcode != 0) {
-      throw new Error("课程表服务器解析失败，错误信息：" + result.data)
-      return
-    }
 
-    this.allweek = result.data
+    this.allweek = scheduleParser(html)
     this.allweek.updateTime = moment().format("YYYY-MM-DD HH:mm")
     this.allweek.count = this.currentCount
     wx.setStorageSync('kcb', this.allweek)
@@ -307,11 +297,20 @@ export class Kcbpaerser {
       let classroom = i.position
 
       let teacher
-      if (i.teacher.length > 4) {
-        teacher = "多名老师"
-      } else {
-        teacher = i.teacher
+      if(i.teacher instanceof Array){
+        if (i.teacher.length >= 2) {
+          teacher = i.teacher[0]+"等"
+        } else {
+          teacher = i.teacher[0]
+        }
+      }else{
+        if (i.teacher.length > 4) {
+          teacher = "多名老师"
+        } else {
+          teacher = i.teacher
+        }
       }
+      
       if (!i.sections || i.sections.length === 0) {
         continue
       }

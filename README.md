@@ -1,6 +1,6 @@
 # 北石化助手
 
-北京石油化工学院专用的校园助手小程序
+北京石油化工学院专用的校园助手小程序（非官方）
 
 代码写的比较不规范，欢迎dalao指正
 
@@ -22,4 +22,4 @@
 <img src="https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot1.PNG" width = "400" alt=""/>
 <img src="https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot2.PNG" width = "400" alt=""/>
 <img src="https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot3.PNG" width = "400" alt=""/>
-<img src="https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot4.PNG" width = "400" alt=""/>
+<img src="https://github.com/linesoft2/biptassist/raw/master/screenshot/screenshot4.jpg" width = "400" alt=""/>
