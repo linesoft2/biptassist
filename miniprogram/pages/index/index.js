@@ -60,7 +60,7 @@ Page({
         if(kcbpaerser.isVacation()){
           this.setData({
             kcb: {
-              info: "暑假快乐！\n点击可查看下学期课表",
+              info: "寒假快乐！\n点击可查看下学期课表",
               xs: 3
             }
           })

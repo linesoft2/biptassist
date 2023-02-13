@@ -40,6 +40,5 @@
   "sitemapLocation": "sitemap.json",
   "useExtendedLib": {
     "weui": true
-  },
-  "lazyCodeLoading": "requiredComponents"
+  }
 }

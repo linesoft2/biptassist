@@ -176,11 +176,3 @@
   align-items: center;
 
 }
-
-.blank{
-/* background: linear-gradient(137deg, rgba(113, 174, 255, 0.05) 0%, rgba(5, 99, 222, 0.05) 100%);
-height: 116rpx;
-margin: 10px 10px; */
-
-/* border-radius: 8px; */
-}
